@@ -8,11 +8,14 @@ import java.util.Map;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 /*import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -80,16 +83,18 @@ Map<Integer,String> country=cService.getCountry();
 		mav.addObject("studentFormVlaidator", new StudentFormVlaidator());
 		return mav;
 	}
-
+	
 	@PostMapping("/save-student")
-	public void saveeditform() {
-		System.out.println("hi");
+	public ResponseEntity<String> saveeditform(@Valid  @RequestBody StudentFormVlaidator studentFormVlaidator,BindingResult bindingResult) {
+		System.out.println("hi kinnari I am here working");
+		 return new ResponseEntity<String>("{}", HttpStatus.OK);
 	}
 	
-	@PostMapping("/save-students")
-	public void SaveStudentCountry(@Valid  @ModelAttribute StudentFormVlaidator studentFormVlaidator,BindingResult bindingResult ){
+	
+	/*@PostMapping("/save-student")
+	public ModelAndView SaveStudentCountry(@Valid  @RequestBody StudentFormVlaidator studentFormVlaidator,BindingResult bindingResult ){
 		
-		/*System.out.println(studentFormVlaidator);
+		System.out.println(studentFormVlaidator);
 		ModelAndView modelAndView = new ModelAndView("student_edit");
 		
 		if (bindingResult.hasErrors()) { 
@@ -104,11 +109,11 @@ Map<Integer,String> country=cService.getCountry();
 	    	s.setCountryId(studentFormVlaidator.getCountryId());
 	    	stService.saveStudent(s);
 	    	 return modelAndView;
-	    }*/
+	    }
 		
 		
 		
-	}
+	}*/
 	@PostMapping("/save-studentfadsfs")
 	public String SaveStudentCountry(@Valid  Student student,@RequestParam Integer country,BindingResult bindingResult ){
 				

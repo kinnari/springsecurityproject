@@ -13,14 +13,15 @@
 <script type="text/javascript">
 var token = $('#_csrf').attr('content');
 var header = $('#_csrf_header').attr('content');
+
 $(document).delegate('#submitButton', 'click', function(event) {
 	event.preventDefault();
-	
+	var form=$("#formId");
 	$.ajax({
         url:'/save-student',
         contentType: "application/json",
         type: "POST",
-        data: JSON.stringify({acqId : 0}),
+        data:form.serialize(),//only input
         dataType: 'json',
         beforeSend: function (request) {
             request.setRequestHeader(header, token);

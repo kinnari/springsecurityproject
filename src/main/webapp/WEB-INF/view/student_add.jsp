@@ -11,7 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     
 <script type="text/javascript">
-var token = $('#_csrf').attr('content');
+/*var token = $('#_csrf').attr('content');
 var header = $('#_csrf_header').attr('content');
 $(document).delegate('#submitButton', 'click', function(event) {
 	event.preventDefault();
@@ -33,13 +33,13 @@ $(document).delegate('#submitButton', 'click', function(event) {
             alert("some Error");
         }
     });
-});
+});*/
 
 
 
 
 
-/*$(() => {
+$(() => {
     // function will get executed 
     // on click of submit button
     $("#submitButton").click(function(e) {
@@ -70,7 +70,7 @@ $(document).delegate('#submitButton', 'click', function(event) {
     
         
     });
-});*/
+});
 
  </script>
 </head>
